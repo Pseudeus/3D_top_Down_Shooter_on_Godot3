@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Scripts/Spawner.cs" type="Script" id=1]
+[ext_resource path="res://Assets/Scenes/Enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Scripts/Wave.cs" type="Script" id=3]
+
+[node name="Spawner" type="Spatial"]
+script = ExtResource( 1 )
+enemyReference = ExtResource( 2 )
+
+[node name="Enemies" type="Spatial" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="WavesBehaviour" type="Node" parent="."]
+
+[node name="Wave" type="Node" parent="WavesBehaviour"]
+script = ExtResource( 3 )
+
+[node name="Wave2" type="Node" parent="WavesBehaviour"]
+script = ExtResource( 3 )
+numEnemies = 5
+secondsBetweenSpawn = 1.0
+
+[node name="Wave3" type="Node" parent="WavesBehaviour"]
+script = ExtResource( 3 )
+numEnemies = 50
+secondsBetweenSpawn = 0.2
